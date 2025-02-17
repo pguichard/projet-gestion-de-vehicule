@@ -5,30 +5,23 @@ import {Table} from "antd";
 
 const columns = [
     {
-        title: 'Marque',
-        dataIndex: 'make',
+        title: 'Nom',
+        dataIndex: 'name',
     },
     {
-        title: 'Model',
-        dataIndex: 'model',
+        title: 'Adresse',
+        dataIndex: 'address',
     },
-    {
-        title: 'Immatriculation',
-        dataIndex: 'license',
-    },
-    {
-        title: 'Année',
-        dataIndex: 'year',
-    },
+
 ];
-const VehicleList = () => {
-    const [vehicles, setVehicles] = useState([]);
+const CompanyList = () => {
+    const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
         // Faire une requête GET à l'API Spring Boot pour récupérer les véhicules
-        axios.get('http://localhost:8080/api/vehicles')
+        axios.get('http://localhost:8080/api/companies')
             .then(response => {
-                setVehicles(response.data); // Mettre à jour l'état avec les véhicules récupérés
+                setCompanies(response.data); // Mettre à jour l'état avec les véhicules récupérés
             })
             .catch(error => {
                 console.error("Il y a une erreur avec la récupération des véhicules", error);
@@ -37,10 +30,10 @@ const VehicleList = () => {
 
     return (
         <div>
-            <h2>Liste des Véhicules</h2>
-            <Table dataSource={vehicles} columns={columns} />
+            <h2>Liste des Company</h2>
+            <Table dataSource={companies} columns={columns} />
         </div>
     );
 };
 
-export default VehicleList;
+export default CompanyList;
