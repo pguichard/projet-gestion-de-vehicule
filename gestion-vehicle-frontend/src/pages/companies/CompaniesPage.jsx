@@ -34,7 +34,7 @@ const CompaniesPage = () => {
 
     return (
         <div>
-            <h2>Liste des Companyy</h2>
+            <h2>Liste des Company</h2>
             <Table dataSource={companies} columns={columns}
                    onRow={(company, rowIndex) => {
                        return {
