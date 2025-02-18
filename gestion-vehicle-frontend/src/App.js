@@ -1,12 +1,11 @@
 import './App.css';
-import VehicleList from "./components/VehicleList";
-import CompanyList from "./components/CompanyList";
+import CompaniesPage from "./pages/companies/CompaniesPage";
 
 function App() {
   return (
     <div className="App">
-        <CompanyList />
-      <VehicleList/>
+        <CompaniesPage />
+
     </div>
   );
 }

@@ -1,7 +1,10 @@
 // src/components/VehicleList.jsx
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import {Table} from "antd";
+import {Button, Table} from "antd";
+import VehicleList from "../../components/VehicleList";
+import {useNavigate} from "react-router-dom";
+import vehicleList from "../../components/VehicleList";
 
 const columns = [
     {
@@ -14,8 +17,9 @@ const columns = [
     },
 
 ];
-const CompanyList = () => {
+const CompaniesPage = () => {
     const [companies, setCompanies] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Faire une requête GET à l'API Spring Boot pour récupérer les véhicules
@@ -31,9 +35,18 @@ const CompanyList = () => {
     return (
         <div>
             <h2>Liste des Company</h2>
-            <Table dataSource={companies} columns={columns} />
+            <Table dataSource={companies} columns={columns}
+                   onRow={(company, rowIndex) => {
+                       return {
+                           onClick: (event) => {
+                               navigate(`/companies/${company.id}`);
+                           },
+                       }
+                   }}
+            />
+
         </div>
     );
 };
 
-export default CompanyList;
+export default CompaniesPage;
