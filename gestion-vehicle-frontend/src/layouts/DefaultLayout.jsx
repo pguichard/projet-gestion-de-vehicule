@@ -2,7 +2,7 @@ import {Layout, Menu} from "antd";
 import {NavLink, Outlet} from "react-router-dom";
 
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const DefaultLayout = () => {
     const items=[
@@ -12,7 +12,7 @@ const DefaultLayout = () => {
         },
         {
             key:2,
-            //label:<NavLink to={"/"}>Véhicules</NavLink>,
+            label:<NavLink to={"/vehicles"}>Véhicules</NavLink>,
         },
         {
             key:3,

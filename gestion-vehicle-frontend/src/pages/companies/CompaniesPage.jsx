@@ -1,10 +1,8 @@
 // src/components/VehicleList.jsx
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Button, Table} from "antd";
-import VehicleList from "../../components/VehicleList";
+import {Table} from "antd";
 import {useNavigate} from "react-router-dom";
-import vehicleList from "../../components/VehicleList";
 
 const columns = [
     {
@@ -36,9 +34,9 @@ const CompaniesPage = () => {
         <div>
             <h2>Liste des Company</h2>
             <Table dataSource={companies} columns={columns}
-                   onRow={(company, rowIndex) => {
+                   onRow={(company) => {
                        return {
-                           onClick: (event) => {
+                           onClick: () => {
                                navigate(`/companies/${company.id}`);
                            },
                        }

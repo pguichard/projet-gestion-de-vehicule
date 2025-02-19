@@ -1,6 +1,7 @@
 // src/components/VehicleList.jsx
 import React from 'react';
 import {Table} from "antd";
+import {useNavigate} from "react-router-dom";
 
 const columns = [
     {
@@ -21,11 +22,21 @@ const columns = [
     },
 ];
 const VehicleList = ({vehicles}) => {
+    const navigate = useNavigate();
     return (
         <div>
             <h2>Liste des Véhicules</h2>
-            <Table dataSource={vehicles} columns={columns} />
+            <Table dataSource={vehicles} columns={columns}
+                   onRow={(vehicle) => {
+                       return {
+                           onClick: () => {
+                               navigate(`/vehicles/${vehicle.id}`);
+                           },
+                       }
+                   }}/>
+
         </div>
+
     );
 };
 

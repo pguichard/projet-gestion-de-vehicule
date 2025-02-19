@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import VehicleList from "../../components/VehicleList";
-import {Button} from "antd";
 
 const CompanyPage = () => {
     const [company, setCompany] = useState(null);
@@ -16,7 +15,7 @@ const CompanyPage = () => {
             .catch(error => {
                 console.error("Il y a une erreur avec la récupération des véhicules", error);
             });
-    }, []); // Ce useEffect ne s'exécutera qu'une seule fois au montage du composant
+    }, [params.id]); // Ce useEffect ne s'exécutera qu'une seule fois au montage du composant
 
     return (
         <>
