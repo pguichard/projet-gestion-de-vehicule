@@ -2,7 +2,7 @@ import {Layout, Menu} from "antd";
 import {NavLink, Outlet} from "react-router-dom";
 
 
-const { Header, Content } = Layout;
+const { Header, Content,Footer } = Layout;
 
 const DefaultLayout = () => {
     const items=[
@@ -44,6 +44,9 @@ const DefaultLayout = () => {
             <Content>
                 <Outlet/>
             </Content>
+            <Footer>
+
+            </Footer>
         </Layout>
     )
 }

@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import FormVehicle from "../forms/FormVehicle";
+
 
 const VehiclePage = () => {
     const [vehicle, setVehicle] = useState(null);
@@ -19,7 +21,7 @@ const VehiclePage = () => {
     return (
         <>
             <h1>Un véhicule {vehicle?.make}</h1>
-
+            <FormVehicle vehicle={vehicle}/>
 
         </>
     )
