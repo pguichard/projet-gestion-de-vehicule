@@ -86,4 +86,5 @@ const FormVehicle = ({vehicle}) => (
             </Button>
         </Form.Item>
     </Form>);
+
 export default FormVehicle;

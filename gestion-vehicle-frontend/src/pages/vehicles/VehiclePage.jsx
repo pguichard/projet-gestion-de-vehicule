@@ -1,12 +1,14 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import FormVehicle from "../forms/FormVehicle";
+import {Button} from "antd";
 
 
 const VehiclePage = () => {
     const [vehicle, setVehicle] = useState(null);
     const params = useParams();
+    const navigate = useNavigate();
     useEffect(() => {
         // Faire une requête GET à l'API Spring Boot pour récupérer les véhicules
         axios.get(`http://localhost:8080/api/vehicles/${params.id}`)
@@ -20,8 +22,12 @@ const VehiclePage = () => {
 
     return (
         <>
-            <h1>Un véhicule {vehicle?.make}</h1>
+            <h1>Le véhicule {vehicle?.license}</h1>
             {vehicle && <FormVehicle vehicle={vehicle}/>}
+
+            <Button type="cyan" htmlType="submit" onClick={() => navigate(`/vehicles`)}>
+                Retour
+            </Button>
         </>
     )
 }
