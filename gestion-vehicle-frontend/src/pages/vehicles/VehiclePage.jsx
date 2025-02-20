@@ -21,8 +21,7 @@ const VehiclePage = () => {
     return (
         <>
             <h1>Un véhicule {vehicle?.make}</h1>
-            <FormVehicle vehicle={vehicle}/>
-
+            {vehicle && <FormVehicle vehicle={vehicle}/>}
         </>
     )
 }
