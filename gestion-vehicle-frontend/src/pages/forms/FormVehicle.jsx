@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Form, Input, InputNumber} from 'antd';
 import axios from "axios";
+import {toast} from "react-toastify";
 
 const layout = {
     labelCol: {
@@ -10,8 +11,8 @@ const layout = {
     },
 };
 const onFinish = (id) => (values) => {
-    axios.put(`http://localhost:8080/api/vehicles/${id}`, values).catch(error => {
-        console.error("Il y a une erreur avec la récupération des véhicules", error);
+    axios.put(`http://localhost:8080/api/vehicles/${id}`, values).then(() =>{toast.success("modification réussi !")}).catch(() => {
+        toast.error("Il y a une erreur avec la récupération des véhicules");
     });
 };
 
@@ -82,7 +83,7 @@ const FormVehicle = ({vehicle}) => (
         </Form.Item>
         <Form.Item label={null}>
             <Button type="primary" htmlType="submit">
-                Submit
+                Validé
             </Button>
         </Form.Item>
     </Form>);

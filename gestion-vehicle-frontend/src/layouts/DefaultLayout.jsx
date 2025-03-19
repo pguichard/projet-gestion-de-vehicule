@@ -1,5 +1,6 @@
 import {Layout, Menu} from "antd";
 import {NavLink, Outlet} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 
 const { Header, Content,Footer } = Layout;
@@ -20,7 +21,8 @@ const DefaultLayout = () => {
 
         }]
     return (
-        <Layout>
+        <Layout style={{height: "100vh"}}>
+            <ToastContainer />
             <Header style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -44,8 +46,8 @@ const DefaultLayout = () => {
             <Content>
                 <Outlet/>
             </Content>
-            <Footer>
-
+            <Footer style={{ textAlign: 'center'  }}>
+                <span>PG © {new Date().getFullYear()}</span>
             </Footer>
         </Layout>
     )

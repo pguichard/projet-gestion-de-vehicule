@@ -9,7 +9,7 @@ const columns = [
         dataIndex: 'make',
     },
     {
-        title: 'Model',
+        title: 'Modèle',
         dataIndex: 'model',
     },
     {
