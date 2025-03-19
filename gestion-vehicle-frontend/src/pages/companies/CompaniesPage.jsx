@@ -32,7 +32,7 @@ const CompaniesPage = () => {
 
     return (
         <div>
-            <h2>Liste des Company</h2>
+            <h2>Liste des Compagnies</h2>
             <Table dataSource={companies} columns={columns}
                    onRow={(company) => {
                        return {
